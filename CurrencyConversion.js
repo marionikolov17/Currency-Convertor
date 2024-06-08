@@ -14,7 +14,7 @@ async function main() {
     if (amount.toLowerCase() === "end") break;
 
     // Validate amount
-    while(amount.toString().split(".")[1].length !== 2) {
+    while(!(+amount > 0) || amount.toString().split(".")[1].length !== 2) {
         console.log("Please enter a valid amount");
         amount = prompt();
     } 
