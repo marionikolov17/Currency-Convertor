@@ -1,6 +1,16 @@
-const fs = require("fs");
+const fs = require("fs").promises;
 
 const dateRegex = /[0-9]{4}-[0-9]{2}-[0-9]{2}/g;
+
+const getApiKey = async () => {
+    try {
+        const config = JSON.parse(await fs.readFile("./config.json", "utf-8"));
+
+        return config["API_KEY"];
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 async function main() {
   // Check if there is command line argument
@@ -16,7 +26,8 @@ async function main() {
     return;
   }
 
-  console.log("there is a date!");
+  const apiKey = await getApiKey();
+  console.log(apiKey);
 }
 
 main();
