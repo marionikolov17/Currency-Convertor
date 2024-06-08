@@ -1,9 +1,9 @@
 const fs = require("fs").promises;
 const utils = require("./utils");
 
-const BASE_URL = "https://api.fastforex.io";
+exports.BASE_URL = "https://api.fastforex.io";
 
-const apiRoutes = {
+exports.apiRoutes = {
   historical: "/historical?",
   currencies: "/currencies?"
 };
@@ -26,8 +26,8 @@ exports.getResponse = async (date, baseCurrency, amount, targetCurrency) => {
     const apiKey = await utils.getApiKey();
 
     const response = await fetch(
-      BASE_URL +
-        apiRoutes.historical +
+      this.BASE_URL +
+        this.apiRoutes.historical +
         `date=${date}&from=${baseCurrency}&api_key=${apiKey}`
     );
     const data = await response.json();

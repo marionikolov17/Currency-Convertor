@@ -27,7 +27,7 @@ exports.checkCurrency = async (currency) => {
 
   try {
     const response = await fetch(
-      BASE_URL + apiRoutes.currencies + `api_key=${await utils.getApiKey()}`
+      apiService.BASE_URL + apiService.apiRoutes.currencies + `api_key=${await utils.getApiKey()}`
     );
     const data = await response.json();
 

@@ -51,7 +51,7 @@ async function main() {
     
     await apiService.saveResponse(date, Number(amount), baseCurrency, targetCurrency, convertedAmount);
 
-    break;
+    console.log(`${amount} ${baseCurrency.toUpperCase()} is ${convertedAmount} ${targetCurrency.toUpperCase()}`);
   }
 }
 
