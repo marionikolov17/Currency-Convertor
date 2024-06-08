@@ -10,6 +10,7 @@ async function main() {
   while(true) {
     let amount = prompt();
 
+    // Check for termination
     if (amount.toLowerCase() === "end") break;
 
     // Validate amount
@@ -20,6 +21,9 @@ async function main() {
 
     let baseCurrency = prompt();
 
+    // Check for termination
+    if (baseCurrency.toLowerCase() === "end") break;
+
     // Validate base currency
     while((await validators.checkCurrency(baseCurrency)) !== true) {
         console.log("Please enter a valid currency code");
@@ -27,6 +31,9 @@ async function main() {
     }
 
     let targetCurrency = prompt();
+
+    // Check for termination
+    if (targetCurrency.toLowerCase() === "end") break;
 
     // Validate target currency
     while((await validators.checkCurrency(targetCurrency)) !== true) {
