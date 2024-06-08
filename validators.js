@@ -55,6 +55,7 @@ exports.checkInputDate = (date) => {
     throw new Error("You must specify valid date format - e.g '2024-05-12'!");
   }
 
+  // Check if date exsists
   if(new Date(date) == "Invalid Date") {
     throw new Error("You must specify valid date format - e.g '2024-05-12'!")
   }
