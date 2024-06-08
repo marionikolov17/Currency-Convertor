@@ -13,25 +13,25 @@ exports.getApiKey = async () => {
 };
 
 exports.getFileData = async (fileName, initData) => {
-    let data;
-    
-    try {
-        await fs.stat(fileName);
+  let data;
 
-        data = JSON.parse(await fs.readFile(fileName));
-    } catch (err) {
-        data = initData;
-    }
+  try {
+    await fs.stat(fileName);
 
-    return data;
-}
+    data = JSON.parse(await fs.readFile(fileName));
+  } catch (err) {
+    data = initData;
+  }
+
+  return data;
+};
 
 exports.getDate = () => {
-    let date = process.argv[2];
+  let date = process.argv[2];
 
-    if (checkInputDate(date)) {
-        return date;
-    }
+  if (checkInputDate(date)) {
+    return date;
+  }
 
-    process.exit(1);
-}
+  process.exit(1);
+};

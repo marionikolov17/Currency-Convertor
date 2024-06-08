@@ -23,7 +23,9 @@ exports.checkCurrency = async (currency) => {
 
   try {
     const response = await fetch(
-      apiService.BASE_URL + apiService.apiRoutes.currencies + `api_key=${await utils.getApiKey()}`
+      apiService.BASE_URL +
+        apiService.apiRoutes.currencies +
+        `api_key=${await utils.getApiKey()}`
     );
     const data = await response.json();
 
@@ -52,8 +54,8 @@ exports.checkInputDate = (date) => {
   }
 
   // Check if date exsists
-  if(new Date(date) == "Invalid Date") {
-    throw new Error("You must specify valid date format - e.g '2024-05-12'!")
+  if (new Date(date) == "Invalid Date") {
+    throw new Error("You must specify valid date format - e.g '2024-05-12'!");
   }
 
   return true;
