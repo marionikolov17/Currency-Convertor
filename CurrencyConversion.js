@@ -1,38 +1,51 @@
-const fs = require("fs").promises;
+const prompt = require("prompt-sync")();
 
-const dateRegex = /[0-9]{4}-[0-9]{2}-[0-9]{2}/g;
-
-const getDate = () => {
-  // Check if there is command line argument
-  if (process.argv.length === 2) {
-    throw new Error("You must specify date!");
-  }
-  let date = process.argv[2];
-
-  // Check if command line argument is correct type
-  if (!dateRegex.test(date)) {
-    throw new Error("You must specify valid date format - e.g '2024-05-12'!");
-  }
-
-  return date;
-};
-
-const getApiKey = async () => {
-  try {
-    const config = JSON.parse(await fs.readFile("./config.json", "utf-8"));
-
-    return config["API_KEY"];
-  } catch (err) {
-    console.log(err);
-  }
-};
+const apiService = require("./apiService");
+const validators = require("./validators");
+const utils = require("./utils");
 
 async function main() {
-  const date = getDate();
+  const date = utils.getDate();
 
-  const apiKey = await getApiKey();
-  console.log(apiKey);
-  console.log(date);
+  while(true) {
+    let amount = prompt();
+
+    if (amount.toLowerCase() === "end") break;
+
+    // Validate amount
+    while(amount.toString().split(".")[1].length !== 2) {
+        console.log("Please enter a valid amount");
+        amount = prompt();
+    } 
+
+    let baseCurrency = prompt();
+
+    // Validate base currency
+    while((await validators.checkCurrency(baseCurrency)) !== true) {
+        console.log("Please enter a valid currency code");
+        baseCurrency = prompt();
+    }
+
+    let targetCurrency = prompt();
+
+    // Validate target currency
+    while((await validators.checkCurrency(targetCurrency)) !== true) {
+        console.log("Please enter a valid currency code");
+        targetCurrency = prompt();
+    }
+
+    let convertedAmount;
+
+    // Try to convert the amount using the cached values
+    convertedAmount = await apiService.useConvertionsCache(date, baseCurrency.toUpperCase(), Number(amount), targetCurrency.toUpperCase());
+
+    // Otherwise call the API
+    if (!convertedAmount) convertedAmount = await apiService.getResponse(date, baseCurrency.toUpperCase(), Number(amount), targetCurrency.toUpperCase());
+    
+    await apiService.saveResponse(date, Number(amount), baseCurrency, targetCurrency, convertedAmount);
+
+    break;
+  }
 }
 
 main();
