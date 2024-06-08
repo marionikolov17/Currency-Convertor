@@ -13,17 +13,13 @@ const checkCacheCurrency = async (currency) => {
     return false;
   }
 
-  if (currencies.includes(currency)) {
-    return true;
-  }
+  if (currencies.includes(currency)) return true;
 
   return false;
 };
 
 exports.checkCurrency = async (currency) => {
-  if (await checkCacheCurrency(currency.toUpperCase())) {
-    return true;
-  }
+  if (await checkCacheCurrency(currency.toUpperCase())) return true;
 
   try {
     const response = await fetch(
