@@ -111,4 +111,4 @@ exports.updateCurrenciesFile = async () => {
   } catch (err) {
     console.error(err);
   }
-}
+};

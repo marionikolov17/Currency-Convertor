@@ -5,7 +5,7 @@ const checkCurrenciesFile = async () => {
   const data = await utils.getFileData("./currencies.json", []);
 
   return data.length !== 0;
-}
+};
 
 const checkCacheCurrency = async (currency) => {
   const currencies = await utils.getFileData("./currencies.json", []);
@@ -19,7 +19,7 @@ exports.checkCurrency = async (currency) => {
   if (await checkCurrenciesFile()) {
     return await checkCacheCurrency(currency.toUpperCase());
   }
-  
+
   await apiService.updateCurrenciesFile();
   return await checkCacheCurrency(currency.toUpperCase());
 };
