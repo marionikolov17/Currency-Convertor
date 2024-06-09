@@ -1,4 +1,4 @@
-const { checkInputDate } = require("./validators");
+const validators = require("./validators");
 
 const fs = require("fs").promises;
 
@@ -29,7 +29,7 @@ exports.getFileData = async (fileName, initData) => {
 exports.getDate = () => {
   let date = process.argv[2];
 
-  if (checkInputDate(date)) {
+  if (validators.checkInputDate(date)) {
     return date;
   }
 
