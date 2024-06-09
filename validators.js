@@ -1,48 +1,17 @@
-const fs = require("fs").promises;
 const utils = require("./utils");
 const apiService = require("./apiService");
 
 const checkCurrenciesFile = async () => {
-  let data = []
-
-  try {
-    await fs.stat("./currencies.json");
-
-    data = JSON.parse(await fs.readFile("./currencies.json"));
-  } catch {
-    return false;
-  }
+  const data = await utils.getFileData("./currencies.json", []);
 
   if (data.length === 0) return false;
   return true
 }
 
-const updateCurrenciesFile = async () => {
-  console.log("api_call")
-  try {
-    const response = await fetch(
-      apiService.BASE_URL +
-        apiService.apiRoutes.currencies +
-        `api_key=${await utils.getApiKey()}`
-    );
-    const data = await response.json();
-
-    await apiService.cacheCurrency(Object.keys(data.currencies));
-  } catch (err) {
-    console.error(err);
-  }
-}
-
 const checkCacheCurrency = async (currency) => {
-  let currencies = [];
-  // Check if there are any cached currencies
-  try {
-    await fs.stat("./currencies.json");
+  const currencies = await utils.getFileData("./currencies.json", []);
 
-    currencies = JSON.parse(await fs.readFile("./currencies.json"));
-  } catch (err) {
-    return false;
-  }
+  if (currencies.length === 0) return false;
 
   if (currencies.includes(currency)) return true;
 
@@ -54,8 +23,8 @@ exports.checkCurrency = async (currency) => {
     if (await checkCacheCurrency(currency.toUpperCase())) return true;
     return false;
   }
-
-  await updateCurrenciesFile();
+  
+  await apiService.updateCurrenciesFile();
   if (await checkCacheCurrency(currency.toUpperCase())) return true;
   return false;
 };

@@ -97,3 +97,18 @@ exports.saveResponse = async (
 
   await fs.writeFile("./conversions.json", JSON.stringify(data));
 };
+
+exports.updateCurrenciesFile = async () => {
+  try {
+    const response = await fetch(
+      apiService.BASE_URL +
+        apiService.apiRoutes.currencies +
+        `api_key=${await utils.getApiKey()}`
+    );
+    const data = await response.json();
+
+    await apiService.cacheCurrency(Object.keys(data.currencies));
+  } catch (err) {
+    console.error(err);
+  }
+}
