@@ -1,1 +1,121 @@
-[{"date":"2024-05-30","amount":10.23,"base_currency":"bgn","target_currency":"eur","converted_amount":5.23},{"date":"2024-05-30","amount":25.83,"base_currency":"eur","target_currency":"bgn","converted_amount":50.48},{"date":"2024-05-30","amount":10.23,"base_currency":"bgn","target_currency":"eur","converted_amount":5.23},{"date":"2024-05-30","amount":10.23,"base_currency":"bgn","target_currency":"eur","converted_amount":5.23},{"date":"2024-05-30","amount":10.23,"base_currency":"bgn","target_currency":"eur","converted_amount":5.23},{"date":"2024-05-30","amount":10.23,"base_currency":"eur","target_currency":"eur","converted_amount":10.23},{"date":"2024-05-30","amount":5.55,"base_currency":"bgn","target_currency":"eur","converted_amount":2.84},{"date":"2024-05-30","amount":432.33,"base_currency":"eur","target_currency":"bgn","converted_amount":844.92},{"date":"2024-05-30","amount":32.33,"base_currency":"eur","target_currency":"eur","converted_amount":32.33},{"date":"2024-06-07","amount":10.66,"base_currency":"bgn","target_currency":"eur","converted_amount":5.5},{"date":"2024-06-07","amount":8.88,"base_currency":"bgn","target_currency":"eur","converted_amount":4.58},{"date":"2024-06-07","amount":10.23,"base_currency":"bgn","target_currency":"eur","converted_amount":5.28},{"date":"2024-06-07","amount":10.23,"base_currency":"bgn","target_currency":"eur","converted_amount":5.28},{"date":"2024-06-07","amount":5.88,"base_currency":"eur","target_currency":"aed","converted_amount":23.35}]
+[
+  {
+    "date": "2024-05-30",
+    "amount": 10.23,
+    "base_currency": "bgn",
+    "target_currency": "eur",
+    "converted_amount": 5.23
+  },
+  {
+    "date": "2024-05-30",
+    "amount": 25.83,
+    "base_currency": "eur",
+    "target_currency": "bgn",
+    "converted_amount": 50.48
+  },
+  {
+    "date": "2024-05-30",
+    "amount": 10.23,
+    "base_currency": "bgn",
+    "target_currency": "eur",
+    "converted_amount": 5.23
+  },
+  {
+    "date": "2024-05-30",
+    "amount": 10.23,
+    "base_currency": "bgn",
+    "target_currency": "eur",
+    "converted_amount": 5.23
+  },
+  {
+    "date": "2024-05-30",
+    "amount": 10.23,
+    "base_currency": "bgn",
+    "target_currency": "eur",
+    "converted_amount": 5.23
+  },
+  {
+    "date": "2024-05-30",
+    "amount": 10.23,
+    "base_currency": "eur",
+    "target_currency": "eur",
+    "converted_amount": 10.23
+  },
+  {
+    "date": "2024-05-30",
+    "amount": 5.55,
+    "base_currency": "bgn",
+    "target_currency": "eur",
+    "converted_amount": 2.84
+  },
+  {
+    "date": "2024-05-30",
+    "amount": 432.33,
+    "base_currency": "eur",
+    "target_currency": "bgn",
+    "converted_amount": 844.92
+  },
+  {
+    "date": "2024-05-30",
+    "amount": 32.33,
+    "base_currency": "eur",
+    "target_currency": "eur",
+    "converted_amount": 32.33
+  },
+  {
+    "date": "2024-06-07",
+    "amount": 10.66,
+    "base_currency": "bgn",
+    "target_currency": "eur",
+    "converted_amount": 5.5
+  },
+  {
+    "date": "2024-06-07",
+    "amount": 8.88,
+    "base_currency": "bgn",
+    "target_currency": "eur",
+    "converted_amount": 4.58
+  },
+  {
+    "date": "2024-06-07",
+    "amount": 10.23,
+    "base_currency": "bgn",
+    "target_currency": "eur",
+    "converted_amount": 5.28
+  },
+  {
+    "date": "2024-06-07",
+    "amount": 10.23,
+    "base_currency": "bgn",
+    "target_currency": "eur",
+    "converted_amount": 5.28
+  },
+  {
+    "date": "2024-06-07",
+    "amount": 5.88,
+    "base_currency": "eur",
+    "target_currency": "aed",
+    "converted_amount": 23.35
+  },
+  {
+    "date": "2024-06-07",
+    "amount": 10.23,
+    "base_currency": "BGN",
+    "target_currency": "amd",
+    "converted_amount": 2224.63
+  },
+  {
+    "date": "2024-06-07",
+    "amount": 84932.23,
+    "base_currency": "ars",
+    "target_currency": "aud",
+    "converted_amount": 143.54
+  },
+  {
+    "date": "2024-06-07",
+    "amount": 22.32,
+    "base_currency": "ars",
+    "target_currency": "aud",
+    "converted_amount": 0.04
+  }
+]

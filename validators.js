@@ -4,29 +4,24 @@ const apiService = require("./apiService");
 const checkCurrenciesFile = async () => {
   const data = await utils.getFileData("./currencies.json", []);
 
-  if (data.length === 0) return false;
-  return true
+  return data.length !== 0;
 }
 
 const checkCacheCurrency = async (currency) => {
   const currencies = await utils.getFileData("./currencies.json", []);
 
-  if (currencies.length === 0) return false;
-
-  if (currencies.includes(currency)) return true;
+  if (currencies.length > 0 && currencies.includes(currency)) return true;
 
   return false;
 };
 
 exports.checkCurrency = async (currency) => {
   if (await checkCurrenciesFile()) {
-    if (await checkCacheCurrency(currency.toUpperCase())) return true;
-    return false;
+    return await checkCacheCurrency(currency.toUpperCase());
   }
   
   await apiService.updateCurrenciesFile();
-  if (await checkCacheCurrency(currency.toUpperCase())) return true;
-  return false;
+  return await checkCacheCurrency(currency.toUpperCase());
 };
 
 exports.checkInputDate = (date) => {
