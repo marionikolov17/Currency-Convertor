@@ -74,14 +74,8 @@ const cacheResponse = async (
   await fs.writeFile("./cache.json", JSON.stringify(data));
 };
 
-exports.cacheCurrency = async (currency) => {
-  const data = await utils.getFileData("./currencies.json", []);
-
-  if (!data.includes(currency)) {
-    data.push(currency);
-  }
-
-  await fs.writeFile("./currencies.json", JSON.stringify(data));
+exports.cacheCurrency = async (currencies) => {
+  await fs.writeFile("./currencies.json", JSON.stringify(currencies));
 };
 
 exports.saveResponse = async (
