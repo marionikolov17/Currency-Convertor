@@ -90,8 +90,8 @@ exports.saveResponse = async (
   data.push({
     date: date,
     amount: amount,
-    base_currency: baseCurrency,
-    target_currency: targetCurrency,
+    base_currency: baseCurrency.toUpperCase(),
+    target_currency: targetCurrency.toUpperCase(),
     converted_amount: convertedAmount,
   });
 
